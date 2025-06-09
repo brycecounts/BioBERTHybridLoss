@@ -1,7 +1,7 @@
-**Overview**
+**Overview** <div>
 Biomedical event classification is a difficult challenge due to class imbalance and semantic overlap between event types. This project introduces a hybrid loss function that combines focal loss with Sinkhorn divergence to fine-tune a BioBERT-based  classification of biomedical events. In particular, we focus specifically on three biological processes: phosphorylation, inhibition and activation. We demonstrate the usefulness of this method using the BioNLP GENIA dataset. Our model architecture is built on a BioBERT base, and we fine-tune only the last two layers of BioBERT.
 
-**Project Structure**
+**Project Structure** <div>
 BioBERTHybridLoss/
 ├── data/
 ├── figures/
@@ -9,7 +9,7 @@ BioBERTHybridLoss/
 ├── README.md
 └── requirements.txt
 
-**Features**
+**Features** <div> 
 Hybrid Loss Function: Combines focal loss and Sinkhorn distance to mitigate class imbalance while encoding domain-specific structure via a biologically informed cost matrix.
 
 BioBERT Fine-Tuning: Custom fine-tuning on BioBERT on the BioNLP GENIA 2013 dataset for event extraction tasks involving activation, inhibition and phosphorylation.
