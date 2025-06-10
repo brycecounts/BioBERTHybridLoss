@@ -1,13 +1,10 @@
 **Overview** <div>
-Biomedical event classification is a difficult challenge due to class imbalance and semantic overlap between event types. This project introduces a hybrid loss function that combines focal loss with Sinkhorn divergence to fine-tune a BioBERT-based  classification of biomedical events. In particular, we focus specifically on three biological processes: phosphorylation, inhibition and activation. We demonstrate the usefulness of this method using the BioNLP GENIA dataset. Our model architecture is built on a BioBERT base, and we fine-tune only the last two layers of BioBERT.
+Biomedical event classification presents unique challenges due to class imbalance and semantic overlap between event types. This project introduces a hybrid loss function that combines focal loss with Sinkhorn divergence to fine-tune a BioBERT-based classifier for biomedical events. We target three biologically significant processes: phosphorylation, activation, and inhibition. Our model is trained on the BioNLP GENIA 2013 dataset and demonstrates improved performance particularly on underrepresented classes by integrating domain-specific knowledge directly into the training process via a biologically informed cost matrix.
 
-**Project Structure** <div>
-BioBERTHybridLoss/ <div>
-├── data/ <div>
-├── figures/ <div>
-├── notebook/ <div>
-├── README.md <div>
-└── requirements.txt
+
+<p align="center">
+  <img src="figures/Picture1.png" alt="Workflow Diagram" width="700"/>
+</p>
 
 **Features** <div> 
 Hybrid Loss Function: Combines focal loss and Sinkhorn distance to mitigate class imbalance while encoding domain-specific structure via a biologically informed cost matrix.
@@ -24,8 +21,11 @@ Eval Metrics and Visuals: Includes precision, recall, F1-score, and visualizatio
 
 
 
-<p align="center">
-  <img src="figures/Picture1.png" alt="Workflow Diagram" width="700"/>
-</p>
 
-
+**Project Structure** <div>
+BioBERTHybridLoss/ <div>
+├── data/ <div>
+├── figures/ <div>
+├── notebook/ <div>
+├── README.md <div>
+└── requirements.txt
