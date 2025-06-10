@@ -55,8 +55,6 @@ We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model foc
 Each input includes the event trigger and up to 1500 characters of document context, tokenized using BioBERT’s tokenizer.
 
 ---
-
-## 📁 Project Structure
 ## 📁 Project Structure
 
 ```plaintext
