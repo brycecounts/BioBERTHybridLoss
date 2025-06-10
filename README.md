@@ -1,72 +1,60 @@
-Overview <div>
-Biomedical event classification presents unique challenges due to class imbalance and semantic overlap between event types. This project introduces a hybrid loss function that combines focal loss with Sinkhorn divergence to fine-tune a BioBERT-based classifier for biomedical events. We target three biologically significant processes: phosphorylation, activation, and inhibition. Our model is trained on the BioNLP GENIA 2013 dataset and demonstrates improved performance particularly on underrepresented classes by integrating domain-specific knowledge directly into the training process via a biologically informed cost matrix.
+# 🧬 BioBERTHybridLoss: Hybrid Loss for Biomedical Event Extraction Using BioBERT
+
+**BioBERTHybridLoss** is an open-source framework that enhances biomedical event classification by combining **focal loss** with **Sinkhorn divergence**—embedding biological knowledge into model training. Built on **BioBERT**, the model is fine-tuned on the **BioNLP GENIA 2013** dataset and targets three critical event types: **phosphorylation**, **activation**, and **inhibition**. This hybrid loss method improves performance on underrepresented classes and minimizes biologically implausible misclassifications.
 
 <p align="center">
-  <img src="figures/Picture1.png" alt="Workflow Diagram" width="700"/>
+  <img src="figures/Flowchart (1).png" alt="BioBERTHybridLoss Workflow" width="700"/>
 </p>
-Features <div>
-Hybrid Loss Function: Combines focal loss and Sinkhorn distance to mitigate class imbalance while encoding domain-specific structure via a biologically informed cost matrix.
-<br>
-BioBERT Fine-Tuning: Custom fine-tuning on BioBERT on the BioNLP GENIA 2013 dataset for event extraction tasks involving activation, inhibition and phosphorylation. Only the final two layers of BioBERT are updated, preserving pretrained biomedical semantics.
-<br>
-Mechanistically Informed Cost Matrix: Encodes biological relationships between event types—e.g., phosphorylation is biologically more distant from inhibition than from activation—into the loss function.
-<br>
-Synonym Augmentation: Applies targeted synonym replacement using WordNet to enrich underrepresented event classes in the training set.
-<br>
-Training Optimization: Incorporates early stopping, cosine annealing learning rate schedule, and class re-weighting using the effective number of samples for stable convergence and improved generalization.
-<br>
-Eval Metrics and Visuals: Includes detailed evaluation (precision, recall, F1-score) and visualizations of learning curves, confusion matrices, and per-class improvements.
 
-Project Structure <div>
-BioBERTHybridLoss/ <div>
-├── data/ <div>
-├── figures/ <div>
-├── notebook/ <div>
-├── README.md <div>
-└── requirements.txt
+---
 
-Installation <div>
+## 🌟 Features
 
-Clone the repository and install dependencies:
+- **Hybrid Loss Function:** Combines focal loss (for class imbalance) with Sinkhorn divergence (for structural biological penalties).
+- **BioBERT Fine-Tuning:** Fine-tunes the final two layers of BioBERT for domain-specific adaptation using GENIA 2013 biomedical events.
+- **Mechanistically Informed Cost Matrix:** Encodes biologically meaningful distances between event types (e.g., inhibition vs phosphorylation).
+- **Synonym-Based Augmentation:** Uses WordNet-driven synonym replacement to improve balance in training data for rare event classes.
+- **Training Optimization:** Incorporates cosine annealing, early stopping, and effective sample-based class weighting.
+- **Rich Evaluation & Visuals:** Outputs detailed precision, recall, and F1-score with learning curves and confusion matrices for interpretability.
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/BioBERTHybridLoss.git
-cd BioBERTHybridLoss
-pip install -r requirements.txt
-Running the Model <div>
+---
 
-To run training with hybrid loss:
+## ⚡ Quick Start
 
-bash
-Copy
-Edit
-python train.py --loss hybrid --lambda 1
-To run the baseline (focal loss only):
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/yourusername/BioBERTHybridLoss.git
+    cd BioBERTHybridLoss
+    ```
 
-bash
-Copy
-Edit
-python train.py --loss focal
-To evaluate:
+2. **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-bash
-Copy
-Edit
-python evaluate.py --model checkpoints/best_model.pt
-Dataset <div>
-We use the BioNLP Shared Task GENIA 2013 dataset (preprocessed via BigBio). Only the three target event types are used:
+3. **Train the Model**
+    ```bash
+    python train.py --loss hybrid --lambda 1
+    ```
 
-Phosphorylation (label 2)
+4. **Evaluate**
+    ```bash
+    python evaluate.py --model checkpoints/best_model.pt
+    ```
 
-Activation (label 1)
+---
 
-Inhibition (label 0)
+## 🧪 Dataset
 
-Citation <div>
+We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model focuses on:
 
-Counts, B., Azam, M., Xu, D., et al. Hybrid Loss Functions and LLMs: Towards Smarter Biomedical Event Extraction with BioBERT. University of Missouri, 2025.
+- **Phosphorylation** (label `2`)
+- **Activation** (label `1`)
+- **Inhibition** (label `0`)
 
-Acknowledgements <div>
-We thank the Digital Biology Lab at the University of Missouri for critical feedback and support.
+Each input includes the event trigger and up to 1500 characters of document context, tokenized using BioBERT’s tokenizer.
+
+---
+
+## 📁 Project Structure
+
