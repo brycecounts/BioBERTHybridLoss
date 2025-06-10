@@ -1,31 +1,67 @@
-**Overview**
-Biomedical event classification is a difficult challenge due to class imbalance and semantic overlap between event types. This project introduces a hybrid loss function that combines focal loss with Sinkhorn divergence to fine-tune a BioBERT-based  classification of biomedical events. In particular, we focus specifically on three biological processes: phosphorylation, inhibition and activation. We demonstrate the usefulness of this method using the BioNLP GENIA dataset. Our model architecture is built on a BioBERT base, and we fine-tune only the last two layers of BioBERT.
+# 🧬 BioBERTHybridLoss: Hybrid Loss for Biomedical Event Extraction Using BioBERT
 
-**Project Structure**
-BioBERTHybridLoss/
-├── data/
-├── figures/
-├── notebook/
-├── README.md
-└── requirements.txt
-
-**Features**
-Hybrid Loss Function: Combines focal loss and Sinkhorn distance to mitigate class imbalance while encoding domain-specific structure via a biologically informed cost matrix.
-
-BioBERT Fine-Tuning: Custom fine-tuning on BioBERT on the BioNLP GENIA 2013 dataset for event extraction tasks involving activation, inhibition and phosphorylation.
-
-Mechanistically Informed Cost Matrix: Introduces biological priors into the loss function, penalizing misclassifications based on mechanistic distances between event types.
-
-Synonym Augmentation: Implements WordNet synonym augmentation to improve trainign distribution balance for minority classes. 
-
-Training Optimization: Includes cosine annealing scheduler, early stopping, and class-weighting via the effective number of samples. 
-
-Eval Metrics and Visuals: Includes precision, recall, F1-score, and visualizations of training performance, confusion matrices, and class-specific improvements. 
-
-
+**BioBERTHybridLoss** is an open-source framework that enhances biomedical event classification by combining **focal loss** with **Sinkhorn divergence**—embedding biological knowledge into model training. Built on **BioBERT**, the model is fine-tuned on the **BioNLP GENIA 2013** dataset and targets three critical event types: **phosphorylation**, **activation**, and **inhibition**. This hybrid loss method improves performance on underrepresented classes and minimizes biologically implausible misclassifications.
 
 <p align="center">
   <img src="figures/Picture1.png" alt="Workflow Diagram" width="700"/>
 </p>
 
+---
+
+## 🌟 Features
+
+- **Hybrid Loss Function:** Combines focal loss (for class imbalance) with Sinkhorn divergence (for structural biological penalties).
+- **BioBERT Fine-Tuning:** Fine-tunes the final two layers of BioBERT for domain-specific adaptation using GENIA 2013 biomedical events.
+- **Mechanistically Informed Cost Matrix:** Encodes biologically meaningful distances between event types (e.g., inhibition vs phosphorylation).
+- **Synonym-Based Augmentation:** Uses WordNet-driven synonym replacement to improve balance in training data for rare event classes.
+- **Training Optimization:** Incorporates cosine annealing, early stopping, and effective sample-based class weighting.
+- **Rich Evaluation & Visuals:** Outputs detailed precision, recall, and F1-score with learning curves and confusion matrices for interpretability.
+
+---
+
+## ⚡ Quick Start
+
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/yourusername/BioBERTHybridLoss.git
+    cd BioBERTHybridLoss
+    ```
+
+2. **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Train the Model**
+    ```bash
+    python train.py --loss hybrid --lambda 1
+    ```
+
+4. **Evaluate**
+    ```bash
+    python evaluate.py --model checkpoints/best_model.pt
+    ```
+
+---
+
+## 🧪 Dataset
+
+We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model focuses on:
+
+- **Phosphorylation** (label `2`)
+- **Activation** (label `1`)
+- **Inhibition** (label `0`)
+
+Each input includes the event trigger and up to 1500 characters of document context, tokenized using BioBERT’s tokenizer.
+
+---
+## 📁 Project Structure
+
+```plaintext
+BioBERTHybridLoss/
+├── data/            # Preprocessed GENIA dataset and augmented samples
+├── figures/         # Workflow diagram, confusion matrices, etc.
+├── notebook/        # Jupyter notebooks for training and analysis
+├── README.md        # Project documentation
+└── requirements.txt # Python dependencies
 
