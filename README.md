@@ -57,4 +57,13 @@ Each input includes the event trigger and up to 1500 characters of document cont
 ---
 
 ## 📁 Project Structure
+## 📁 Project Structure
+
+```plaintext
+BioBERTHybridLoss/
+├── data/            # Preprocessed GENIA dataset and augmented samples
+├── figures/         # Workflow diagram, confusion matrices, etc.
+├── notebook/        # Jupyter notebooks for training and analysis
+├── README.md        # Project documentation
+└── requirements.txt # Python dependencies
 
