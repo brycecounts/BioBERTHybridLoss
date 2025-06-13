@@ -1,14 +1,13 @@
-# 🧬 BioBERTHybridLoss: Hybrid Loss for Biomedical Event Extraction Using BioBERT
+BioBERTHybridLoss: Hybrid Loss for Biomedical Event Extraction Using BioBERT
 
 **BioBERTHybridLoss** is an open-source framework that enhances biomedical event classification by combining **focal loss** with **Sinkhorn divergence**—embedding biological knowledge into model training. Built on **BioBERT**, the model is fine-tuned on the **BioNLP GENIA 2013** dataset and targets three critical event types: **phosphorylation**, **activation**, and **inhibition**. This hybrid loss method improves performance on underrepresented classes and minimizes biologically implausible misclassifications.
 
 <p align="center">
-  <img src="figures/Picture1.png" alt="Workflow Diagram" width="700"/>
+  <img src="figures/Flowchart(2).png" alt="Workflow Diagram" width="700"/>
 </p>
 
 ---
-
-## 🌟 Features
+Features
 
 - **Hybrid Loss Function:** Combines focal loss (for class imbalance) with Sinkhorn divergence (for structural biological penalties).
 - **BioBERT Fine-Tuning:** Fine-tunes the final two layers of BioBERT for domain-specific adaptation using GENIA 2013 biomedical events.
@@ -19,7 +18,7 @@
 
 ---
 
-## ⚡ Quick Start
+Quick Start
 
 1. **Clone the Repository**
     ```bash
@@ -44,7 +43,7 @@
 
 ---
 
-## 🧪 Dataset
+Dataset
 
 We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model focuses on:
 
@@ -55,7 +54,7 @@ We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model foc
 Each input includes the event trigger and up to 1500 characters of document context, tokenized using BioBERT’s tokenizer.
 
 ---
-## 📁 Project Structure
+Project Structure
 
 ```plaintext
 BioBERTHybridLoss/
