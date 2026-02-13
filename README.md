@@ -47,9 +47,9 @@ Dataset
 
 We use the BioNLP Shared Task GENIA 2013 dataset (via BigBio). The model focuses on:
 
-- Phosphorylation (label `2`)
-- Activation (label `1`)
-- Inhibition (label `0`)
++ Phosphorylation (label `2`)
++ Activation (label `1`)
++ Inhibition (label `0`)
 
 Each input includes the event trigger and up to 1500 characters of document context, tokenized using BioBERT’s tokenizer.
 
