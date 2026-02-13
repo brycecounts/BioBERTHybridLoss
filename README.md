@@ -45,7 +45,7 @@ Quick Start
 
 Dataset
 
-We use the **BioNLP Shared Task GENIA 2013** dataset (via BigBio). The model focuses on:
+We use the BioNLP Shared Task GENIA 2013 dataset (via BigBio). The model focuses on:
 
 - **Phosphorylation** (label `2`)
 - **Activation** (label `1`)
